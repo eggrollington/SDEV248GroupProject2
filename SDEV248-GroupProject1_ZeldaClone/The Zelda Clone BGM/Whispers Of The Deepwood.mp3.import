@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dtsu1p2xqx80l"
+path="res://.godot/imported/Whispers Of The Deepwood.mp3-b311d32de7c0ebcd2a4d0d3ba0a75c98.mp3str"
+
+[deps]
+
+source_file="res://The Zelda Clone BGM/Whispers Of The Deepwood.mp3"
+dest_files=["res://.godot/imported/Whispers Of The Deepwood.mp3-b311d32de7c0ebcd2a4d0d3ba0a75c98.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
