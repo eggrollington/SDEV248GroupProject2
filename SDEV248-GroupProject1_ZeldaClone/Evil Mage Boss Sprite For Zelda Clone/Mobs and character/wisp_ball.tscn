@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c0xpurnpnsqc1"]
+
+[ext_resource type="Texture2D" uid="uid://b5aytufqs72w" path="res://Wisp (2).png" id="1_fuk3o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_724h3"]
+radius = 1.5
+
+[node name="WispBall" type="Sprite2D" unique_id=1613268360]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("1_fuk3o")
+hframes = 5
+vframes = 6
+frame = 28
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=808428116]
+position = Vector2(-0.5, -1.5)
+shape = SubResource("CircleShape2D_724h3")

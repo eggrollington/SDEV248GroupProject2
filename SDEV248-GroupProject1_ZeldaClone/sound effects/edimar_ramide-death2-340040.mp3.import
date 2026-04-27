@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bh45gg2v1jkda"
+path="res://.godot/imported/edimar_ramide-death2-340040.mp3-4e6eb1210035da6abeaffd72f7da1771.mp3str"
+
+[deps]
+
+source_file="res://sound effects/edimar_ramide-death2-340040.mp3"
+dest_files=["res://.godot/imported/edimar_ramide-death2-340040.mp3-4e6eb1210035da6abeaffd72f7da1771.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
