@@ -74,4 +74,3 @@ layer_0/tile_data = PackedInt32Array(524288, 131072, 0, 589824, 131072, 1, 52428
 [node name="player" parent="." unique_id=1211263343 instance=ExtResource("2_4wuf8")]
 position = Vector2(125, 116)
 jump_velocity = -5000.0
-gravity = 10000

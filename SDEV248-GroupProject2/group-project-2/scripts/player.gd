@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var speed = 100
 @export var jump_velocity = -350.0
 
-@export var gravity = 1200
+var gravity = get_gravity()
 
 @onready var animated_sprite = $AnimatedSprite2D # Use @onready instead of _ready
 @onready var animation_player = $AnimationPlayer
