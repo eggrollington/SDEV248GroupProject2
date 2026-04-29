@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://5ph3a64dxlr5"
+path="res://.godot/imported/lesiakower-8-bit-game-over-sound-effect-331435.mp3-57140ff12fdeb1be43b7508c9da7e6f4.mp3str"
+
+[deps]
+
+source_file="res://sound effects/lesiakower-8-bit-game-over-sound-effect-331435.mp3"
+dest_files=["res://.godot/imported/lesiakower-8-bit-game-over-sound-effect-331435.mp3-57140ff12fdeb1be43b7508c9da7e6f4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

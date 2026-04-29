@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dklm5dyhd1mss"
+path="res://.godot/imported/Twilight Crown of the Abyss.mp3-887af73017ee3c708b43aed8447a285c.mp3str"
+
+[deps]
+
+source_file="res://The Zelda Clone BGM/Twilight Crown of the Abyss.mp3"
+dest_files=["res://.godot/imported/Twilight Crown of the Abyss.mp3-887af73017ee3c708b43aed8447a285c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

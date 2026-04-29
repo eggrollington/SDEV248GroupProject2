@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b3mo3krd3e7mi"
+path="res://.godot/imported/yodguard-shield_impact-4-382413.mp3-cce1e5e9efd8a6993f02f30a765e2512.mp3str"
+
+[deps]
+
+source_file="res://The Zelda Clone BGM/yodguard-shield_impact-4-382413.mp3"
+dest_files=["res://.godot/imported/yodguard-shield_impact-4-382413.mp3-cce1e5e9efd8a6993f02f30a765e2512.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
