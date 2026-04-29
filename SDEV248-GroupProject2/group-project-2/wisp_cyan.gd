@@ -1,4 +1,4 @@
-daextends WispBase
+extends WispBase
 
 const DASH_SPEED := 220.0
 const CHARGE_TIME := 1.4

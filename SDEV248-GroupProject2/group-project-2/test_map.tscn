@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dck5lo6eoqd70" path="res://tilesets/tilemap.png" id="1_4qc02"]
 [ext_resource type="PackedScene" uid="uid://dj27mn34iw1ml" path="res://scenes/player.tscn" id="2_4wuf8"]
+[ext_resource type="PackedScene" path="res://wisp_cyan.tscn" id="3_s02eq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4wuf8"]
 texture = ExtResource("1_4qc02")
@@ -75,3 +76,6 @@ layer_0/tile_data = PackedInt32Array(524288, 131072, 0, 589824, 131072, 1, 52428
 position = Vector2(125, 116)
 jump_velocity = -300.0
 gravity = 900
+
+[node name="WispCyan" parent="." unique_id=57059327 instance=ExtResource("3_s02eq")]
+position = Vector2(186, 113)
