@@ -19,10 +19,12 @@ var is_dead: bool = false
 func _ready():
 	add_to_group("player")
 
-	# REQUIRED for WispBase damage system
-	if swordhitbox:
-		swordhitbox.add_to_group("player_attack")
-		swordhitbox.monitoring = true
+	# 🔥 CRITICAL: must match WispBase system
+	swordhitbox.add_to_group("damage")
+	swordhitbox.add_to_group("player_attack")
+
+	swordhitbox.monitoring = true
+	swordhitbox.monitorable = true
 
 
 func _physics_process(delta: float):
@@ -30,13 +32,12 @@ func _physics_process(delta: float):
 		velocity = Vector2.ZERO
 		return
 
-	# Blocking
 	is_blocking = Input.is_action_pressed("block")
 
-	# Attacking state lock
 	if is_attacking:
 		velocity = Vector2.ZERO
 		attack_timer += delta
+
 		if attack_timer >= attack_duration:
 			is_attacking = false
 			attack_timer = 0.0
@@ -56,15 +57,12 @@ func update_animation(direction: Vector2):
 		animated_sprite.play("block_" + last_direction)
 		return
 
-	# Facing direction
 	if direction.x != 0:
 		animated_sprite.flip_h = direction.x < 0
 		last_direction = "side"
 	elif direction.y < 0:
-		animated_sprite.flip_h = false
 		last_direction = "north"
 	elif direction.y > 0:
-		animated_sprite.flip_h = false
 		last_direction = "south"
 
 	var state = "walk" if direction != Vector2.ZERO else "idle"
@@ -79,17 +77,17 @@ func _input(event):
 		is_attacking = true
 		attack_timer = 0.0
 
-		var animation_name = "attack_" + last_direction
-		if last_direction == "side" and animated_sprite.flip_h:
-			animation_name = "attack_weest"
-
-		sword_animation.play(animation_name)
+		sword_animation.play("attack_" + last_direction)
 		swordhitbox.monitoring = true
 
 
 # -----------------------------
-# SWORD DAMAGE (FIXED)
+# DAMAGE OUTPUT (FIXED + GUARANTEED)
 # -----------------------------
+func get_damage() -> int:
+	return 1
+
+
 func _on_swordhitbox_area_entered(area: Area2D):
 	var enemy = area.get_parent()
 
@@ -106,7 +104,7 @@ func _on_swordhitbox_body_entered(body: Node2D):
 
 
 # -----------------------------
-# PLAYER DAMAGE SYSTEM
+# PLAYER DAMAGE INPUT
 # -----------------------------
 func take_damage(damage: int):
 	if is_dead or is_blocking:
@@ -129,6 +127,7 @@ func die():
 
 	is_dead = true
 	velocity = Vector2.ZERO
+
 	set_physics_process(false)
 	set_process_input(false)
 
@@ -140,9 +139,6 @@ func die():
 	queue_free()
 
 
-# -----------------------------
-# ANIMATION CLEANUP
-# -----------------------------
 func _on_animated_sprite_animation_finished():
 	if is_attacking:
 		is_attacking = false
