@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var speed = 100
 @export var jump_velocity = -350.0
 
-var gravity = get_gravity()
+@export var gravity = 400
 
 @onready var animated_sprite = $AnimatedSprite2D # Use @onready instead of _ready
 @onready var animation_player = $AnimationPlayer
@@ -57,12 +57,15 @@ func _physics_process(delta):
 		if attack_timer >= attack_duration:
 			is_attacking = false
 			attack_timer = 0.0
+			
+	var direction = Input.get_axis("left", "right")
 	if is_attacking or is_blocking:
 		velocity.x = move_toward(velocity.x, 0, speed)
 	else:
-		var direction = Input.get_vector("left", "right", "up", "down")
-			
-		velocity = direction * speed
+		if direction:
+			velocity.x = direction * speed
+		else:
+			velocity.x = move_toward(velocity.x, 0, speed)
 	
 	update_animation(velocity) # Using velocity instead of direction is often more reliable
 	
