@@ -73,7 +73,7 @@ func _ai_move(delta: float) -> void:
 		wander_timer -= delta
 
 		if wander_timer <= 0:
-			wander_dir = randi() % 2 == 0 ? -1 : 1
+			wander_dir = -1 if randi() % 2 == 0 else 1
 			wander_timer = randf_range(1.0, 3.0)
 
 		var float_y = sin(t * 2.5) * 10.0
