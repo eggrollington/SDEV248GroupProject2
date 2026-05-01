@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed = 100
+@export var speed: float = 100
 @export var jump_velocity = -350.0
 
 @export var gravity = 400
@@ -87,6 +87,7 @@ func _physics_process(delta):
 func update_animation(direction):
 	if is_attacking:
 		#velocity = Vector2.ZERO 
+		animated_sprite.offset = Vector2.ZERO
 		if last_direction == "north":
 			animated_sprite.offset.y = -10.0
 		elif last_direction == "south":
@@ -127,6 +128,16 @@ func _input(event):
 	if is_dead: 
 		return
 	if event.is_action_pressed("attack") and not is_attacking and not is_blocking:
+		# Check for directional modifiers
+		if Input.is_action_pressed("up"):
+			last_direction = "north"
+		elif Input.is_action_pressed("down") and not is_on_floor():
+			last_direction = "south"
+		elif Input.is_action_pressed("down") and is_on_floor() and last_direction == "south":
+			return
+		elif is_on_floor and last_direction == "south":
+			return
+		# If neither is held, it keeps the 'side' direction from movement
 		is_attacking = true
 		attack_timer = 0.0
 		#play sound
