@@ -79,6 +79,7 @@ jump_velocity = -300.0
 gravity = 900
 
 [node name="WispCyan" parent="." unique_id=57059327 instance=ExtResource("3_s02eq")]
+visible = false
 position = Vector2(186, 113)
 
 [node name="evilwizardboss" parent="." unique_id=1694364247 instance=ExtResource("4_t8dge")]
