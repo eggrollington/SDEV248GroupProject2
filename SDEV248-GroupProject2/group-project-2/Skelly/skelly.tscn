@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://becbcxgvx7pme"]
 
-[ext_resource type="Script" uid="uid://dwsa6xwxb0ehi" path="res://skelly.gd" id="1_ipuqw"]
-[ext_resource type="Texture2D" uid="uid://coi5kckdt4amm" path="res://Skelly(2).png" id="1_plnaa"]
+[ext_resource type="Script" uid="uid://bqem7ohxq8jr2" path="res://Skelly/skelly.gd" id="1_ipuqw"]
+[ext_resource type="Texture2D" uid="uid://c5niuhnnkb084" path="res://Skelly/Skelly(2).png" id="1_plnaa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qc46u"]
 radius = 17.418383
@@ -334,7 +334,6 @@ script = ExtResource("1_ipuqw")
 metadata/_edit_group_ = true
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=2044695850]
-visible = false
 scale = Vector2(0.99999994, 0.99999994)
 collision_layer = 3
 collision_mask = 3
@@ -357,7 +356,6 @@ libraries/ = SubResource("AnimationLibrary_5ievb")
 autoplay = &"Idle"
 
 [node name="DetectionArea" type="Area2D" parent="." unique_id=873544030]
-visible = false
 collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1645973446]
@@ -365,7 +363,6 @@ shape = SubResource("CircleShape2D_ipuqw")
 metadata/_edit_group_ = true
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1613145450 groups=["enemies"]]
-visible = false
 collision_layer = 7
 collision_mask = 7
 

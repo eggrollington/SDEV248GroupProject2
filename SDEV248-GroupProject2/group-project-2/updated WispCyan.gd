@@ -31,6 +31,7 @@ func _process(delta: float) -> void:
 		return
 
 	t += delta
+<<<<<<< Updated upstream
 	state_t += delta
 
 	match state:
@@ -51,12 +52,41 @@ func _process(delta: float) -> void:
 
 				# reset hit tracking each dash
 				has_damaged_this_dash = false
+=======
+
+	if damage_timer > 0:
+		damage_timer -= delta
+
+	state_t += delta
+
+	match state:
+
+		State.CHARGE:
+			# stable hover (no horizontal drift)
+			global_position.y = origin_pos.y + sin(t * 6.0) * 2.0
+
+			if state_t >= CHARGE_TIME:
+
+				# 🔥 NEVER ALLOW LEFT FALLBACK ANYMORE
+				if player:
+					dash_dir = (player.global_position - global_position).normalized()
+				else:
+					# safe fallback: stay in place instead of escaping map
+					dash_dir = Vector2.ZERO
+
+				state = State.DASH
+				state_t = 0.0
+>>>>>>> Stashed changes
 
 
 		State.DASH:
 			global_position += dash_dir * DASH_SPEED * delta
 
+<<<<<<< Updated upstream
 			_try_damage_player()
+=======
+			_try_damage_player_local()
+>>>>>>> Stashed changes
 
 			if state_t >= DASH_TIME:
 				state = State.REST
@@ -64,6 +94,7 @@ func _process(delta: float) -> void:
 
 
 		State.REST:
+<<<<<<< Updated upstream
 			var return_dir := origin_pos - global_position
 
 			if return_dir.length() > 2.0:
@@ -71,6 +102,17 @@ func _process(delta: float) -> void:
 			else:
 				global_position = origin_pos
 
+=======
+			# 🔥 HARD RESET POSITION STABILITY (NO DRIFT)
+			var return_dir := (origin_pos - global_position)
+
+			if return_dir.length() > 2.0:
+				global_position += return_dir.normalized() * DASH_SPEED * 0.3 * delta
+
+			else:
+				global_position = origin_pos
+
+>>>>>>> Stashed changes
 			if state_t >= REST_TIME:
 				state = State.CHARGE
 				state_t = 0.0
@@ -79,8 +121,13 @@ func _process(delta: float) -> void:
 # -------------------------
 # DASH DAMAGE (FIXED)
 # -------------------------
+<<<<<<< Updated upstream
 func _try_damage_player() -> void:
 	if has_damaged_this_dash:
+=======
+func _try_damage_player_local() -> void:
+	if damage_timer > 0:
+>>>>>>> Stashed changes
 		return
 
 	for p in get_tree().get_nodes_in_group("player"):
@@ -90,5 +137,9 @@ func _try_damage_player() -> void:
 		if global_position.distance_to(p.global_position) < 18.0:
 			if p.has_method("take_damage"):
 				p.take_damage(damage)
+<<<<<<< Updated upstream
 				has_damaged_this_dash = true
+=======
+				damage_timer = damage_cooldown
+>>>>>>> Stashed changes
 				break
