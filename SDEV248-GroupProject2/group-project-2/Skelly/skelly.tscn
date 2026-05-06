@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://becbcxgvx7pme"]
 
-[ext_resource type="Script" uid="uid://dwsa6xwxb0ehi" path="res://skelly.gd" id="1_ipuqw"]
-[ext_resource type="Texture2D" uid="uid://coi5kckdt4amm" path="res://Skelly(2).png" id="1_plnaa"]
+[ext_resource type="Script" uid="uid://bqem7ohxq8jr2" path="res://Skelly/skelly.gd" id="1_ipuqw"]
+[ext_resource type="Texture2D" uid="uid://c5niuhnnkb084" path="res://Skelly/Skelly(2).png" id="1_plnaa"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ipuqw"]
 radius = 2.3999977
@@ -237,7 +237,6 @@ script = ExtResource("1_ipuqw")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2147457165]
-visible = false
 position = Vector2(-1, -3.999999)
 scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("CapsuleShape2D_ipuqw")
