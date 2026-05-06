@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dmcntcg8pgcgr"]
 
-[ext_resource type="Script" uid="uid://bnsjg588keg7j" path="res://wisp_cyan.gd" id="1"]
+[ext_resource type="Script" uid="uid://c8362cjiu4dyw" path="res://updated WispCyan.gd" id="1"]
 
 [sub_resource type="CircleShape2D" id="wisp_shape"]
 radius = 8.0
