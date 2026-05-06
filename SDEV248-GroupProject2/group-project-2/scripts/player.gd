@@ -69,12 +69,12 @@ func _physics_process(delta):
 	
 	update_animation(velocity) # Using velocity instead of direction is often more reliable
 	
-	if velocity != Vector2.ZERO:
-		print("Moving! Velocity is: ", velocity)
+	#if velocity != Vector2.ZERO:
+		#print("Moving! Velocity is: ", velocity)
 		
 		#gravity
-	print("On floor: ", is_on_floor(), " Velocity: ", velocity)
-	print(delta)
+	#print("On floor: ", is_on_floor(), " Velocity: ", velocity)
+	#print(delta)
 	if not is_on_floor(): 
 		velocity.y += gravity * delta
 		
