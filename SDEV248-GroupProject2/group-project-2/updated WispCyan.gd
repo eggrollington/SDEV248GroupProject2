@@ -13,84 +13,82 @@ var dash_dir: Vector2 = Vector2.ZERO
 
 var origin_pos: Vector2
 
+# prevents multi-hit per dash (replaces cooldown system)
+var has_damaged_this_dash: bool = false
+
 
 func _ready() -> void:
-    max_health = 2
-    orb_color = Color("60ffff")
-    orb_radius = 6.0
+	max_health = 2
+	orb_color = Color("60ffff")
+	orb_radius = 6.0
 
-    super._ready()
-    origin_pos = global_position
+	super._ready()
+	origin_pos = global_position
 
 
 func _process(delta: float) -> void:
-    if is_dead:
-        return
+	if is_dead:
+		return
 
-    t += delta
+	t += delta
+	state_t += delta
 
-    if damage_timer > 0:
-        damage_timer -= delta
+	match state:
 
-    state_t += delta
+		State.CHARGE:
+			# hover idle motion
+			global_position.y = origin_pos.y + sin(t * 6.0) * 2.0
 
-    match state:
+			if state_t >= CHARGE_TIME:
 
-        State.CHARGE:
-            # stable hover (no horizontal drift)
-            global_position.y = origin_pos.y + sin(t * 6.0) * 2.0
+				if player:
+					dash_dir = (player.global_position - global_position).normalized()
+				else:
+					dash_dir = Vector2.ZERO
 
-            if state_t >= CHARGE_TIME:
+				state = State.DASH
+				state_t = 0.0
 
-                # 🔥 NEVER ALLOW LEFT FALLBACK ANYMORE
-                if player:
-                    dash_dir = (player.global_position - global_position).normalized()
-                else:
-                    # safe fallback: stay in place instead of escaping map
-                    dash_dir = Vector2.ZERO
-
-                state = State.DASH
-                state_t = 0.0
+				# reset hit tracking each dash
+				has_damaged_this_dash = false
 
 
-        State.DASH:
-            global_position += dash_dir * DASH_SPEED * delta
+		State.DASH:
+			global_position += dash_dir * DASH_SPEED * delta
 
-            _try_damage_player_local()
+			_try_damage_player()
 
-            if state_t >= DASH_TIME:
-                state = State.REST
-                state_t = 0.0
+			if state_t >= DASH_TIME:
+				state = State.REST
+				state_t = 0.0
 
 
-        State.REST:
-            # 🔥 HARD RESET POSITION STABILITY (NO DRIFT)
-            var return_dir := (origin_pos - global_position)
+		State.REST:
+			var return_dir := origin_pos - global_position
 
-            if return_dir.length() > 2.0:
-                global_position += return_dir.normalized() * DASH_SPEED * 0.3 * delta
+			if return_dir.length() > 2.0:
+				global_position += return_dir.normalized() * DASH_SPEED * 0.3 * delta
+			else:
+				global_position = origin_pos
 
-            else:
-                global_position = origin_pos
-
-            if state_t >= REST_TIME:
-                state = State.CHARGE
-                state_t = 0.0
+			if state_t >= REST_TIME:
+				state = State.CHARGE
+				state_t = 0.0
 
 
 # -------------------------
-# DAMAGE (UNCHANGED BUT SAFE)
+# DASH DAMAGE (FIXED)
 # -------------------------
-func _try_damage_player_local() -> void:
-    if damage_timer > 0:
-        return
+func _try_damage_player() -> void:
+	if has_damaged_this_dash:
+		return
 
-    for p in get_tree().get_nodes_in_group("player"):
-        if not p:
-            continue
+	for p in get_tree().get_nodes_in_group("player"):
+		if not p:
+			continue
 
-        if global_position.distance_to(p.global_position) < 18.0:
-            if p.has_method("take_damage"):
-                p.take_damage(damage)
-                damage_timer = damage_cooldown
-                break
+		if global_position.distance_to(p.global_position) < 18.0:
+			if p.has_method("take_damage"):
+				p.take_damage(damage)
+				has_damaged_this_dash = true
+				break
