@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dmcntcg8pgcgr"]
+
+[ext_resource type="Script" uid="uid://bnsjg588keg7j" path="res://wisp_cyan.gd" id="1"]
+
+[sub_resource type="CircleShape2D" id="wisp_shape"]
+radius = 8.0
+
+[node name="WispCyan" type="Area2D" unique_id=775624997]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1709240651]
+shape = SubResource("wisp_shape")
