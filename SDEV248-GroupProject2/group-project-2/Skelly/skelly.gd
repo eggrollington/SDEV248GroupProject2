@@ -1,8 +1,11 @@
 extends CharacterBody2D
 
 @export var speed: float = 50.0
+@export var gravity: float = 800.0
 @export var attack_range: float = 30.0
 @export var attack_cooldown: float = 1.2
+@export var health: int = 4
+
 @onready var attack_area: Area2D = $AttackArea
 @onready var anim: AnimationPlayer = $AnimationPlayer
 @onready var detection_area: Area2D = $DetectionArea
@@ -10,47 +13,45 @@ extends CharacterBody2D
 @onready var wall_ray_left: RayCast2D = $WallRayLeft
 @onready var wall_ray_right: RayCast2D = $WallRayRight
 
+var is_hurt: bool = false
 var player = null
 var last_direction = 1
 var attack_timer = 0.0
 var is_attacking = false
-var health = 4
 var is_dead = false
 
 func _ready():
 	add_to_group("enemies")
-	detection_area.body_entered.connect(_on_detection_area_body_entered)
-	detection_area.body_exited.connect(_on_detection_area_body_exited)
-	if attack_area:
-		attack_area.body_entered.connect(_on_attack_area_body_entered)
-		attack_area.monitoring = false
-	else:
-		push_error("AttackArea child is missing on Skelly!")
-	if hurtbox:
-		hurtbox.body_entered.connect(_on_hurtbox_body_entered)
-	else:
-		push_error("Hurtbox child is missing on Skelly!")
 	anim.animation_finished.connect(_on_animation_finished)
 
 func _physics_process(delta):
 	if is_dead:
 		velocity = Vector2.ZERO
+		move_and_slide()
 		return
+		
+	if not is_on_floor():
+		velocity.y += gravity * delta
+		
 	attack_timer = max(0.0, attack_timer - delta)
+	
 	if is_attacking:
-		velocity.x = 0          
+		velocity.x = move_toward(velocity.x, 0, speed * 2)  
 	else:
 		if player:
 			chase_and_attack_player()
 		else:
 			patrol()
-			
+	
 	move_and_slide()
+	
+	# Wall turning while patrolling
 	if not is_attacking and not player:
 		if (last_direction > 0 and wall_ray_right.is_colliding()) or \
-		(last_direction < 0 and wall_ray_left.is_colliding()):
+		   (last_direction < 0 and wall_ray_left.is_colliding()):
 			last_direction *= -1
-			print("Wall hit via RayCast - reversing!")
+			print("Wall hit - reversing!")
+	
 	update_animation()
 
 func patrol():
@@ -61,7 +62,6 @@ func patrol():
 		wall_ray_left.enabled = true
 		wall_ray_right.enabled = false
 	velocity.x = last_direction * speed
-	velocity.y = 0
 
 
 
@@ -76,21 +76,20 @@ func chase_and_attack_player():
 		start_attack()
 	else:
 		velocity.x = direction_x * speed
-		velocity.y = 0
 
 func start_attack():
 	is_attacking = true
-	velocity = Vector2.ZERO
 	attack_timer = attack_cooldown
 	attack_area.monitoring = true
-	# Play correct attack animation based on facing direction
-	if abs(last_direction.x) > abs(last_direction.y):
-		if last_direction.x > 0:
-			anim.play("Right_Attack")
-		else:
-			anim.play("Left_Side_Attack")
+	velocity.x = 0
+	if last_direction > 0:
+		anim.play("Right_Attack")
+	else:
+		anim.play("Left_Side_Attack")
 
 func update_animation():
+	if is_dead or is_attacking:
+		return
 	if is_attacking:
 		return
 	if abs(velocity.x) > 5:
@@ -116,29 +115,29 @@ func _on_detection_area_body_exited(body):
 
 # Call this from player script when sword hits skeleton
 func take_damage(damage: int, knockback: Vector2 = Vector2.ZERO):
-	print(">>> SKELLY take_damage called with ", damage, " damage")
 	if is_dead:
 		return
 	health -= damage
-	print(">>> SKELLY TOOK ", damage, " DAMAGE! Remaining health: ", health)
-	velocity = knockback * 120  # knockback effect
-	
-	anim.play("Hurt")
-	
+	velocity = knockback * 120
 	if health <= 0:
 		die()
-	else:
-		await anim.animation_finished
-		# Return to normal after hurt
+		return
+	
+	is_attacking = true
+	anim.stop()
+	anim.play("Hurt")
+	await anim.animation_finished
+	is_attacking = false
+	anim.play("Idle")
 
 func die():
+	if is_dead:
+		return
 	is_dead = true
 	is_attacking = true
 	velocity = Vector2.ZERO
-	print(">>> SKELLY DIED - playing death animation")
 	anim.play("Death")
 	await anim.animation_finished
-	print(">>> SKELLY death animation finished - removing")
 	queue_free()
 
   
