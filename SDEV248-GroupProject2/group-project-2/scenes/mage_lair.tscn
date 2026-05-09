@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ceopvwevqaww4"]
 
 [ext_resource type="Script" uid="uid://b2rx3onlcwfi0" path="res://scenes/mage_lair.gd" id="1_df1f2"]
-[ext_resource type="Texture2D" path="res://tilesets/tilemap.png" id="1_p7i61"]
+[ext_resource type="Texture2D" uid="uid://dck5lo6eoqd70" path="res://tilesets/old sets/tilemap.png" id="1_p7i61"]
 [ext_resource type="PackedScene" uid="uid://dj27mn34iw1ml" path="res://scenes/player.tscn" id="2_n13vn"]
 [ext_resource type="PackedScene" uid="uid://dihfy347pksw4" path="res://scenes/Shadow.tscn" id="3_df1f2"]
 [ext_resource type="AudioStream" uid="uid://dklm5dyhd1mss" path="res://The Zelda Clone BGM/Twilight Crown of the Abyss.mp3" id="5_nr1ve"]
