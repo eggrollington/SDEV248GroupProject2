@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://cq3huw8m7adf3"]
 
-[ext_resource type="Texture2D" uid="uid://dck5lo6eoqd70" path="res://tilesets/tilemap.png" id="1_4qc02"]
+[ext_resource type="Texture2D" uid="uid://dck5lo6eoqd70" path="res://tilesets/old sets/tilemap.png" id="1_4qc02"]
 [ext_resource type="PackedScene" uid="uid://dj27mn34iw1ml" path="res://scenes/player.tscn" id="2_4wuf8"]
-[ext_resource type="PackedScene" uid="uid://dmcntcg8pgcgr" path="res://scenes/wisp_cyan.tscn" id="3_t8dge"]
-[ext_resource type="Script" uid="uid://jf364peywep" path="res://wisp_cyan.gd" id="4_qgarv"]
+[ext_resource type="PackedScene" uid="uid://dmcntcg8pgcgr" path="res://wisp_cyan.tscn" id="3_t8dge"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4wuf8"]
 texture = ExtResource("1_4qc02")
@@ -80,9 +79,3 @@ gravity = 900
 
 [node name="WispCyan" parent="." unique_id=775624997 instance=ExtResource("3_t8dge")]
 position = Vector2(329, 117)
-script = ExtResource("4_qgarv")
-max_health = 2
-orb_color = Color(1, 1, 1, 1)
-orb_radius = 6.0
-speed = 60.0
-detection_radius = 120.0

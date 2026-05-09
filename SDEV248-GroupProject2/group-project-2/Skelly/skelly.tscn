@@ -8,7 +8,7 @@ radius = 2.3999977
 height = 13.999994
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qc46u"]
-radius = 17.418383
+radius = 7.0256677
 
 [sub_resource type="Animation" id="Animation_qc46u"]
 resource_name = "Back_Attack"

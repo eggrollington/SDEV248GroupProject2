@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3umtqsarrvqt"
-path="res://.godot/imported/water_decorations.png-394ded957100eb9caa2a76e052ef52b2.ctex"
+uid="uid://8stm48a80lvf"
+path="res://.godot/imported/tileset_canvas.png-7ca8de64b0e0e297d8c959276d52822c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tilesets/water_decorations.png"
-dest_files=["res://.godot/imported/water_decorations.png-394ded957100eb9caa2a76e052ef52b2.ctex"]
+source_file="res://tilesets/new sets/tileset_canvas.png"
+dest_files=["res://.godot/imported/tileset_canvas.png-7ca8de64b0e0e297d8c959276d52822c.ctex"]
 
 [params]
 

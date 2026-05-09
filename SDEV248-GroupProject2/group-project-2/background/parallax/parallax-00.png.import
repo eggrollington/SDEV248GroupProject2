@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drdpic5ee27gd"
-path="res://.godot/imported/water_lillies.png-a91e0e7ff044d0f67498edf6d53d79b7.ctex"
+uid="uid://debv7idecmxhy"
+path="res://.godot/imported/parallax-00.png-95380455d69db01a2c82c9c63704c567.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tilesets/water_lillies.png"
-dest_files=["res://.godot/imported/water_lillies.png-a91e0e7ff044d0f67498edf6d53d79b7.ctex"]
+source_file="res://background/parallax/parallax-00.png"
+dest_files=["res://.godot/imported/parallax-00.png-95380455d69db01a2c82c9c63704c567.ctex"]
 
 [params]
 
