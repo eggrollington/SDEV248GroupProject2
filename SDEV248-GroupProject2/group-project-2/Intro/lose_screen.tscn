@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cxavuq6p8xrnp"]
 
-[ext_resource type="Texture2D" uid="uid://pfrnfwnip48g" path="res://Group/Thumbnail_37.png" id="1_5xl3v"]
-[ext_resource type="Script" uid="uid://b7gltqw0kg343" path="res://Group/quit.gd" id="2_ihcf0"]
-[ext_resource type="Script" uid="uid://cpboqsys0oei5" path="res://Group/start.gd" id="3_x3kqs"]
+[ext_resource type="Texture2D" uid="uid://pfrnfwnip48g" path="res://Intro/Thumbnail_37.png" id="1_5xl3v"]
+[ext_resource type="Script" uid="uid://b7gltqw0kg343" path="res://Intro/quit.gd" id="2_ihcf0"]
+[ext_resource type="Script" uid="uid://cpboqsys0oei5" path="res://Intro/start.gd" id="3_x3kqs"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s5ikk"]
 texture = ExtResource("1_5xl3v")

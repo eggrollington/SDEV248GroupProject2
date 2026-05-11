@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://b3g27msm2e76r"]
 
 [ext_resource type="Texture2D" uid="uid://c1vpadcjgwv2s" path="res://tilesets/new sets/tileset_canvas (1).png" id="1_hio4h"]
+[ext_resource type="Script" uid="uid://c8wht21m0gi4c" path="res://main_map.gd" id="1_np7p1"]
 [ext_resource type="Texture2D" uid="uid://8stm48a80lvf" path="res://tilesets/new sets/tileset_canvas.png" id="2_fnffn"]
 [ext_resource type="Texture2D" uid="uid://debv7idecmxhy" path="res://background/parallax/parallax-00.png" id="3_286o7"]
 [ext_resource type="Script" uid="uid://dkkv1ys5qy6ac" path="res://cloud_layer.gd" id="4_4ly05"]
@@ -12,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://becbcxgvx7pme" path="res://Skelly/skelly.tscn" id="10_4ly05"]
 [ext_resource type="PackedScene" uid="uid://dmcntcg8pgcgr" path="res://wisp_cyan.tscn" id="11_t3ofs"]
 [ext_resource type="PackedScene" uid="uid://vb3oi7jcy64r" path="res://evilwizardboss.tscn" id="12_t3ofs"]
+[ext_resource type="PackedScene" uid="uid://c3vilv8ic7fym" path="res://Intro/main_menu.tscn" id="14_np7p1"]
+[ext_resource type="AudioStream" uid="uid://bwlooep61xfit" path="res://The Zelda Clone BGM/Crown of Ash and Aether.mp3" id="15_1k36j"]
+[ext_resource type="PackedScene" uid="uid://cxavuq6p8xrnp" path="res://Intro/lose_screen.tscn" id="15_e37sb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_np7p1"]
 texture = ExtResource("1_hio4h")
@@ -1211,6 +1215,7 @@ texture = ExtResource("2_fnffn")
 sources/0 = SubResource("TileSetAtlasSource_vreyb")
 
 [node name="Main map" type="Node2D" unique_id=1224303471]
+script = ExtResource("1_np7p1")
 
 [node name="TileMap" type="TileMap" parent="." unique_id=882572873]
 scale = Vector2(0.5, 0.5)
@@ -1290,19 +1295,19 @@ position = Vector2(77, 239)
 
 [node name="Skelly" parent="." unique_id=103119009 instance=ExtResource("10_4ly05")]
 position = Vector2(355, 248)
-scale = Vector2(1, 1)
+scale = Vector2(1.5, 1.5)
 
 [node name="Skelly2" parent="." unique_id=1097434807 instance=ExtResource("10_4ly05")]
 position = Vector2(286, 248)
-scale = Vector2(1, 1)
+scale = Vector2(1.5, 1.5)
 
 [node name="Skelly3" parent="." unique_id=825460578 instance=ExtResource("10_4ly05")]
 position = Vector2(796, 195)
-scale = Vector2(1, 1)
+scale = Vector2(1.5, 1.5)
 
 [node name="Skelly4" parent="." unique_id=744184162 instance=ExtResource("10_4ly05")]
 position = Vector2(717, 195)
-scale = Vector2(1, 1)
+scale = Vector2(1.5, 1.5)
 
 [node name="WispCyan" parent="." unique_id=775624997 instance=ExtResource("11_t3ofs")]
 position = Vector2(334, 222)
@@ -1318,3 +1323,13 @@ position = Vector2(468, 214)
 
 [node name="evilwizardboss" parent="." unique_id=1694364247 instance=ExtResource("12_t3ofs")]
 position = Vector2(1582, 181)
+
+[node name="Main_Menu" parent="." unique_id=1468963146 instance=ExtResource("14_np7p1")]
+visible = false
+
+[node name="LoseScreen" parent="." unique_id=479793624 instance=ExtResource("15_e37sb")]
+visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1548211875]
+stream = ExtResource("15_1k36j")
+volume_db = -23.719

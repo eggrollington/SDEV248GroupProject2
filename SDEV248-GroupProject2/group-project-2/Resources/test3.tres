@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Character" load_steps=4 format=3 uid="uid://dpgl5krjbpvuq"]
+
+[ext_resource type="Texture2D" uid="uid://drhaeqjqig08h" path="res://c.png" id="1_4qbx8"]
+[ext_resource type="Script" uid="uid://dkhts5qdufda7" path="res://Character.gd" id="1_tnqs7"]
+[ext_resource type="Texture2D" uid="uid://cv1fwxcup2243" path="res://icon.svg" id="3_wvxj6"]
+
+[resource]
+script = ExtResource("1_tnqs7")
+title = "test3"
+icon = ExtResource("1_4qbx8")
+texture = ExtResource("3_wvxj6")
+agility = 20
+metadata/_custom_type_script = "uid://dkhts5qdufda7"

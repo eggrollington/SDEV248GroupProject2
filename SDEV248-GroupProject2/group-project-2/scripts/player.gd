@@ -222,7 +222,7 @@ func die():
 	velocity = Vector2.ZERO
 	animated_sprite.play("death")
 	await animated_sprite.animation_finished
-	get_tree().change_scene_to_file("res://main_menu.tscn")
+	get_tree().change_scene_to_file("res://Intro/lose_screen.tscn")
 	
 
 

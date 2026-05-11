@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ctsl6doyeoc4m" path="res://Evil Mage Boss Sprite For Zelda Clone/Jump.png" id="6_okuqu"]
 [ext_resource type="Texture2D" uid="uid://bpnthy4f1kf8s" path="res://Evil Mage Boss Sprite For Zelda Clone/Run.png" id="7_ucomj"]
 [ext_resource type="Texture2D" uid="uid://cnpdjt32e4b3w" path="res://Evil Mage Boss Sprite For Zelda Clone/Take hit.png" id="8_u48un"]
+[ext_resource type="AudioStream" uid="uid://dn1xet1m1irqb" path="res://Evil Mage Boss Sprite For Zelda Clone/floraphonic-fire-torch-whoosh-3-190299.mp3" id="10_rh382"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ichm3"]
 atlas = ExtResource("3_rh382")
@@ -605,5 +606,8 @@ disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AttackHitbox" unique_id=2097177144 groups=["enemy_attack"]]
 libraries/ = SubResource("AnimationLibrary_q7t2e")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=997197252]
+stream = ExtResource("10_rh382")
 
 [connection signal="area_entered" from="AttackHitbox" to="." method="_on_attack_hitbox_area_entered"]

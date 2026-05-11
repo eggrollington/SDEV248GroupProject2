@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Character" load_steps=5 format=3 uid="uid://xvdi64h1khp7"]
+
+[ext_resource type="Texture2D" uid="uid://df2yr7h0c4dfb" path="res://pngimg.com - letter_b_PNG45.png" id="1_icgw0"]
+[ext_resource type="Script" uid="uid://dkhts5qdufda7" path="res://Character.gd" id="2_ih5sb"]
+[ext_resource type="Texture2D" uid="uid://cv1fwxcup2243" path="res://icon.svg" id="3_as67f"]
+[ext_resource type="PackedScene" uid="uid://byvckpgcg32bb" path="res://scenes/vfx.tscn" id="4_e1l4o"]
+
+[resource]
+script = ExtResource("2_ih5sb")
+title = "Seer"
+icon = ExtResource("1_icgw0")
+texture = ExtResource("3_as67f")
+agility = 17
+metadata/_custom_type_script = "uid://dkhts5qdufda7"
