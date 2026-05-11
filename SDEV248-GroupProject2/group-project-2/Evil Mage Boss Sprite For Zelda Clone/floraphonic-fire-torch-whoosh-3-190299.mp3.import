@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dn1xet1m1irqb"
+path="res://.godot/imported/floraphonic-fire-torch-whoosh-3-190299.mp3-2d2773126149081d598ff84a8dc0dd00.mp3str"
+
+[deps]
+
+source_file="res://Evil Mage Boss Sprite For Zelda Clone/floraphonic-fire-torch-whoosh-3-190299.mp3"
+dest_files=["res://.godot/imported/floraphonic-fire-torch-whoosh-3-190299.mp3-2d2773126149081d598ff84a8dc0dd00.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

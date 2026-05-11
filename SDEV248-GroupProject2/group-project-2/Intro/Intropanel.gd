@@ -25,7 +25,7 @@ func start_intro():
 
 func show_next_text():
 	if text_queue.is_empty():
-		get_tree().change_scene_to_file("res://starting_room.tscn")
+		get_tree().change_scene_to_file("res://main_map.tscn")
 		return
 
 	current_text = text_queue.pop_front()

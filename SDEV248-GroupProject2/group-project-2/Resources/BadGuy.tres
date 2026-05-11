@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Character" load_steps=3 format=3 uid="uid://o6o6iyv1q454"]
+
+[ext_resource type="Script" uid="uid://dkhts5qdufda7" path="res://Character.gd" id="1_2iwol"]
+[ext_resource type="Texture2D" uid="uid://cv1fwxcup2243" path="res://icon.svg" id="2_4y18u"]
+
+[resource]
+script = ExtResource("1_2iwol")
+title = "BadGuy"
+texture = ExtResource("2_4y18u")
+agility = 12
+metadata/_custom_type_script = "uid://dkhts5qdufda7"

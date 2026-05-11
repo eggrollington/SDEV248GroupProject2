@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Character" load_steps=5 format=3 uid="uid://1hr1pj0lknth"]
+
+[ext_resource type="Texture2D" uid="uid://bsyl8uvdroua3" path="res://letter_a_PNG6.png" id="1_0yed6"]
+[ext_resource type="Script" uid="uid://dkhts5qdufda7" path="res://Character.gd" id="1_a6v2h"]
+[ext_resource type="Texture2D" uid="uid://cv1fwxcup2243" path="res://icon.svg" id="3_x2hs3"]
+[ext_resource type="PackedScene" uid="uid://byvckpgcg32bb" path="res://scenes/vfx.tscn" id="4_djgqi"]
+
+[resource]
+script = ExtResource("1_a6v2h")
+title = "test"
+icon = ExtResource("1_0yed6")
+texture = ExtResource("3_x2hs3")
+agility = 12
+metadata/_custom_type_script = "uid://dkhts5qdufda7"

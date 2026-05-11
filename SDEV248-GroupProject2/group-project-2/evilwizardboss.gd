@@ -102,7 +102,7 @@ func check_attack_range():
 func perform_attack(type):
 	current_state = States.ATTACK
 	velocity.x = 0
-	
+	$AudioStreamPlayer.play()
 	animated_sprite.play(type)
 	if attack_player.has_animation(type):
 		attack_player.play(type)
@@ -150,8 +150,9 @@ func die():
 	$CollisionShape2D.set_deferred("disabled", true)
 	# Wait for death anim then do something
 	await animated_sprite.animation_finished
+	get_tree().change_scene_to_file("res://Intro/win_screen.tscn")
 	queue_free()
-	# get_tree().change_scene_to_file("res://win_screen.tscn")
+	
 
 func play_anim(anim_name):
 	if animated_sprite.animation != anim_name:
