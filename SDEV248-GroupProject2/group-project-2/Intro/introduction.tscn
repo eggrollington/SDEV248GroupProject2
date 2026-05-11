@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bbn5vdvkrnbg3"]
+
+[ext_resource type="Texture2D" uid="uid://pfrnfwnip48g" path="res://Group/Thumbnail_37.png" id="1_qhir2"]
+[ext_resource type="Script" uid="uid://vej573u7x1rf" path="res://Group/Intropanel.gd" id="2_n2tp0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s46dg"]
+texture = ExtResource("1_qhir2")
+
+[node name="Introduction" type="CanvasLayer" unique_id=982828620]
+
+[node name="Panel" type="Panel" parent="." unique_id=1364155265]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -39.0
+offset_top = -37.0
+offset_right = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_s46dg")
+script = ExtResource("2_n2tp0")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1733219208]
+offset_left = 9.0
+offset_top = 477.0
+offset_right = 1154.0
+offset_bottom = 673.0
+theme_override_font_sizes/normal_font_size = 35
+
+[node name="Label" type="Label" parent="." unique_id=841661629]
+offset_right = 40.0
+offset_bottom = 23.0

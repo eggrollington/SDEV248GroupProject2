@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://cxavuq6p8xrnp"]
+
+[ext_resource type="Texture2D" uid="uid://pfrnfwnip48g" path="res://Group/Thumbnail_37.png" id="1_5xl3v"]
+[ext_resource type="Script" uid="uid://b7gltqw0kg343" path="res://Group/quit.gd" id="2_ihcf0"]
+[ext_resource type="Script" uid="uid://cpboqsys0oei5" path="res://Group/start.gd" id="3_x3kqs"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s5ikk"]
+texture = ExtResource("1_5xl3v")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ndybt"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwbto"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="LoseScreen" type="Node2D" unique_id=1468963146]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1843117855]
+
+[node name="Panel" type="Panel" parent="." unique_id=659281592]
+offset_left = -14.0
+offset_top = -12.0
+offset_right = 1168.0
+offset_bottom = 653.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_s5ikk")
+
+[node name="Label" type="Label" parent="." unique_id=842283542]
+offset_left = 211.0
+offset_top = -10.0
+offset_right = 1039.0
+offset_bottom = 203.0
+theme_override_font_sizes/font_size = 40
+text = "You have failed...
+You have been given another chance
+Will you take it?"
+
+[node name="Quit" type="Button" parent="." unique_id=171096278]
+offset_left = 427.0
+offset_top = 386.0
+offset_right = 784.0
+offset_bottom = 453.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 0.5019608)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0.4)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ndybt")
+text = "Quit"
+script = ExtResource("2_ihcf0")
+
+[node name="Start" type="Button" parent="." unique_id=201941050]
+offset_left = 427.0
+offset_top = 311.0
+offset_right = 784.0
+offset_bottom = 378.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_jwbto")
+text = "Try Again?"
+script = ExtResource("3_x3kqs")
+
+[connection signal="pressed" from="Quit" to="Quit" method="_on_pressed"]
+[connection signal="pressed" from="Start" to="Start" method="_on_pressed"]
